@@ -13,8 +13,8 @@ public class MainServer {
         System.out.println("Hello World!");
 
         try {
-            DistanteObj obj = new DistanteObj(MainClient.port);
             System.setProperty("java.rmi.server.hostname",MainClient.ip);
+            DistanteObj obj = new DistanteObj(MainClient.port);
             Registry r = LocateRegistry.createRegistry(MainClient.port);
             r.bind("echo", obj);
             r.bind("sendInt", obj);
