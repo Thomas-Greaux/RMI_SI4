@@ -33,6 +33,8 @@ public class DistanteObj extends UnicastRemoteObject implements DistanteInterfac
             e.printStackTrace();
         }
 
+        System.out.println("Hey, you just called Resultat with param " + param + " !");
+
         return new Resultat(param);
     }
 }

@@ -1,7 +1,6 @@
 package client;
 
 import common.DistanteInterface;
-import server.Resultat;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -10,7 +9,7 @@ import java.rmi.registry.Registry;
 
 public class MainClient {
 
-    public static String ip = "localhost";
+    public static String ip = "10.212.97.7";
     public static int port = 1099;
     public static int attenmp = 0;
     public static boolean testing = true;
@@ -28,11 +27,9 @@ public class MainClient {
             connect();
             testing = false;
             System.out.println("It's the end of the test (as we know it)");
-        } catch (RemoteException e) {
+        } catch (Exception e) {
             test();
-            e.printStackTrace();
-        } catch (NotBoundException e) {
-            test();
+            System.out.println(e);
             e.printStackTrace();
         }
     }
@@ -41,9 +38,7 @@ public class MainClient {
         System.out.println("Attempt " + ++attenmp);
 
         Registry r = LocateRegistry.getRegistry(ip, port);
-        //((common.DistanteInterface) r.lookup("echo")).echo();
-        Resultat res = ((DistanteInterface)r.lookup("sendInt")).sendInt(1);
-
-        System.out.println(res.toString());
+        //((DistanteInterface) r.lookup("echo")).echo();
+        System.out.println(((DistanteInterface)r.lookup("sendInt")).sendInt(1).toString());
     }
 }
