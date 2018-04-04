@@ -1,6 +1,5 @@
 package server;
 
-import client.DistanteObj;
 import client.MainClient;
 
 import java.rmi.AlreadyBoundException;

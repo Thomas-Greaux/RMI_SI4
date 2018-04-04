@@ -1,4 +1,6 @@
-package client;
+package common;
+
+import server.Resultat;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

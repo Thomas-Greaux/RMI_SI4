@@ -1,5 +1,8 @@
 package client;
 
+import common.DistanteInterface;
+import server.Resultat;
+
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -38,7 +41,7 @@ public class MainClient {
         System.out.println("Attempt " + ++attenmp);
 
         Registry r = LocateRegistry.getRegistry(ip, port);
-        //((DistanteInterface) r.lookup("echo")).echo();
+        //((common.DistanteInterface) r.lookup("echo")).echo();
         Resultat res = ((DistanteInterface)r.lookup("sendInt")).sendInt(1);
 
         System.out.println(res.toString());
