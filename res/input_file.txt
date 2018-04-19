@@ -1,0 +1,4 @@
+Ceci est un texte tres long qui existe afin de demontrer les fonctionnalites de streaming qu'on a implementer selon le protocol web hooks en utilisant Java RMI.
+Je ne suis pas sur que le texte soit assez long donc j'ecris cette phrase en plus.
+Et toi ca va? N'oublie pas de prendre des pauses et de bien t'hydrater.
+Mais finalement le texte n'est pas si long que ca.
