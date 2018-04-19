@@ -25,7 +25,7 @@ public class ServerTopicImpl extends UnicastRemoteObject implements ServerTopic 
     public boolean login(ClientSession a) throws RemoteException {
         System.out.println("New Connection established with " + a.getName() + "\n");
 
-        publish(a.getName() + "just joined the topic\n");
+        publish(a.getName() + " just joined the topic\n");
 
         a.tell("You just joined the topic");
 

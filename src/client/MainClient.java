@@ -1,7 +1,6 @@
 package client;
 
 import common.DistanteInterface;
-import other.ConnexionServeur;
 import server.ServerTopic;
 
 import java.net.MalformedURLException;
@@ -13,9 +12,9 @@ import java.rmi.registry.Registry;
 
 public class MainClient {
 
-    public static String ip = "localhost";
-    public static int port = 1099;
-    public static int attenmp = 0;
+    public static final String ip = "localhost";
+    public static final int port = 1099;
+    public static int attempt = 0;
     public static boolean testing = true;
     public static void main(String[] args) {
         System.out.println("Hello World!");
@@ -26,7 +25,7 @@ public class MainClient {
             ServerTopic topic = (ServerTopic) Naming.lookup("rmi://" + ip + ":" + port + "/login");
 
             topic.login(clientSession);
-            topic.publish("xdddddd");
+            topic.publish("hello");
         } catch (RemoteException | NotBoundException | MalformedURLException e) {
             e.printStackTrace();
         }
@@ -46,7 +45,7 @@ public class MainClient {
     }
 
     private static void connect() throws RemoteException, NotBoundException{
-        System.out.println("Attempt " + ++attenmp);
+        System.out.println("Attempt " + ++attempt);
 
         Registry r = LocateRegistry.getRegistry(ip, port);
         //((DistanteInterface) r.lookup("echo")).echo();
