@@ -1,6 +1,7 @@
 package server;
 
-import client.ClientSession;
+import common.ClientSession;
+import common.ServerTopic;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -22,16 +23,10 @@ public class ServerTopicImpl extends UnicastRemoteObject implements ServerTopic 
     }
 
     @Override
-    public boolean login(ClientSession a) throws RemoteException {
-        System.out.println("New Connection established with " + a.getName() + "\n");
-
-        publish(a.getName() + " just joined the topic\n");
-
-        a.tell("You just joined the topic");
+    public void login(ClientSession a) throws RemoteException {
+        System.out.println("New Connection established\n");
 
         clients.add(a);
-
-        return true;
     }
 
     @Override

@@ -44,16 +44,4 @@ public class Streamer {
 
         return res;
     }
-
-    public static void main(String[] args) {
-        Streamer streamer = new Streamer("res/input_file.txt");
-
-        byte[] buffer;
-        byte[] empty = new byte[0];
-
-         do {
-            buffer = streamer.next_bytes();
-            System.out.print(new String(buffer));
-         } while(!Arrays.equals(buffer, empty));
-    }
 }
